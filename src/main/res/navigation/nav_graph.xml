@@ -27,5 +27,14 @@
         android:id="@+id/subCategory"
         android:name="com.example.myappiiii.ui.SubCategory"
         android:label="fragment_sub_category"
-        tools:layout="@layout/fragment_sub_category" />
+        tools:layout="@layout/fragment_sub_category" >
+        <action
+            android:id="@+id/action_subCategory_to_detail"
+            app:destination="@id/detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.example.myappiiii.ui.Detail"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

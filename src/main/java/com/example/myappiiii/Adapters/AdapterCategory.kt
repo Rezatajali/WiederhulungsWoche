@@ -4,13 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myappiiii.Model.Category
+import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.databinding.ListItemCategoryBinding
+import com.example.myappiiii.ui.SubCategory
 
 class AdapterCategory(
     // Liste der Kategorien
     private val categories: List<Category>,
     // Funktion, die beim Klicken auf eine Kategorie aufgerufen wird
-    //private val onCategoryClick: (List<SubCategory>) -> Unit,
+    private val onCategoryClick: (Category) -> Unit,
     ) : RecyclerView.Adapter<AdapterCategory.CategoryViewHolder>() {
 
         // Interner ViewHolder zum Halten der Item-Views
@@ -43,8 +45,9 @@ class AdapterCategory(
 
             // Klick-Listener für jedes Item definieren
             holder.binding.root.setOnClickListener {
-                // Aufrufen der onCategoryClick-Funktion mit der Liste der Unterkategorien der Kategorie
-                //onCategoryClick(item.subCategory)
+                //Aufrufen der onCategoryClick-Funktion mit der Liste
+                onCategoryClick(item)
+
             }
         }
 }

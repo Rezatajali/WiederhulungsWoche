@@ -24,12 +24,13 @@
         android:id="@+id/category_RV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/list_item_category"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_TV" />
+        app:layout_constraintTop_toBottomOf="@+id/home_TV"
+        app:spanCount="2"
+        tools:listitem="@layout/list_item_category" />
 </androidx.constraintlayout.widget.ConstraintLayout>

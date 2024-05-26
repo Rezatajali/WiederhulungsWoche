@@ -3,6 +3,7 @@ package com.example.myappiiii.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myappiiii.Model.Category
 import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.databinding.ListItemSubBinding
 
@@ -10,7 +11,7 @@ class SubcategoryAdapter (
     // Liste der Unterkategorien
     private var subcategories: List<Subcategory>,
     // Funktion, die beim Klicken auf eine Unterkategorie aufgerufen wird
-    //private val onSubcategoryClick: (SubCategory) -> Unit
+    private val onSubcategoryClick: (Subcategory) -> Unit
 ) : RecyclerView.Adapter<SubcategoryAdapter.SubcategoryViewHolder>() {
 
     // Interner ViewHolder zum Halten der Item-Views
@@ -42,9 +43,9 @@ class SubcategoryAdapter (
         // Unterkategorien-Bild festlegen
         holder.binding.subcategoryIV.setImageResource(item.image)
         // Klick-Listener für jedes Item definieren
-        holder.binding.root.setOnClickListener {
-            // Aufrufen der onSubcategoryClick-Funktion mit der aktuellen Unterkategorie
-            //onSubcategoryClick(item)
-        }
+//        holder.binding.root.setOnClickListener {
+//            // Aufrufen der onSubcategoryClick-Funktion mit der aktuellen Unterkategorie
+//            onSubcategoryClick(item)
+//        }
     }
 }
