@@ -44,8 +44,7 @@ class SubCategorys : Fragment() {
 
 
         viewModel.currentCategory.observe(viewLifecycleOwner) {
-            binding.subRV.adapter = SubcategoryAdapter(subcategories = it.subcategor)
-
+            binding.subRV.adapter = SubcategoryAdapter(subcategories = it)
         }
 
         val adapter = SubcategoryAdapter(data, onSubcategoryClick)

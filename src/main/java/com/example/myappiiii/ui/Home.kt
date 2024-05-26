@@ -44,6 +44,7 @@ class Home : Fragment() {
             findNavController().navigate(R.id.subCategory)
         }
 
+        //
         val adapter = AdapterCategory(data, onCategoryCkic)
         binding.categoryRV.adapter = adapter
 
