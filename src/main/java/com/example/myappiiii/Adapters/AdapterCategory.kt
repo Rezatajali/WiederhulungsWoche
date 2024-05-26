@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myappiiii.Model.Category
-import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.databinding.ListItemCategoryBinding
-import com.example.myappiiii.ui.SubCategory
 
 class AdapterCategory(
     // Liste der Kategorien

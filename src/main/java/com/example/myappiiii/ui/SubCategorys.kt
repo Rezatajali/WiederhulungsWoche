@@ -7,15 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.myappiiii.Adapters.AdapterCategory
 import com.example.myappiiii.Adapters.SubcategoryAdapter
 import com.example.myappiiii.Data.DataSource
+import com.example.myappiiii.Model.Category
+import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.R
 import com.example.myappiiii.SharedViewModel
 import com.example.myappiiii.databinding.FragmentSubCategoryBinding
 
 
-class SubCategory : Fragment() {
+class SubCategorys : Fragment() {
 
     lateinit var binding: FragmentSubCategoryBinding
 
@@ -32,22 +33,43 @@ class SubCategory : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.currentCategory.observe(viewLifecycleOwner) {
-            val adapter = SubcategoryAdapter(it.subcategory)
-            binding.subRV.adapter = adapter
-        }
 
 
-        binding.subRV.setOnClickListener{
+
+        val onSubcategoryClick: (Subcategory) -> Unit = {
+
+            viewModel.setSubCategory(subcategory = it)
             findNavController().navigate(R.id.detail)
         }
 
+
+        viewModel.currentCategory.observe(viewLifecycleOwner) {
+            binding.subRV.adapter = SubcategoryAdapter(subcategories = it.subcategor)
+
+        }
+
+        val adapter = SubcategoryAdapter(data, onSubcategoryClick)
+        binding.subRV.adapter = adapter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Zurück zu letze layout (Home)
         binding.backIV.setOnClickListener{
             findNavController().navigateUp()
         }
 
-
-
-
     }
+
+
 }

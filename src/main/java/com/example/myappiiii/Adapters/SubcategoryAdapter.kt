@@ -7,11 +7,11 @@ import com.example.myappiiii.Model.Category
 import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.databinding.ListItemSubBinding
 
-class SubcategoryAdapter (
+class SubcategoryAdapter(
     // Liste der Unterkategorien
-    private var subcategories: List<Subcategory>,
+    private var subcategories: List<Category>,
     // Funktion, die beim Klicken auf eine Unterkategorie aufgerufen wird
-    private val onSubcategoryClick: (Subcategory) -> Unit
+    private val onSubcategoryClick: (Category) -> Unit
 ) : RecyclerView.Adapter<SubcategoryAdapter.SubcategoryViewHolder>() {
 
     // Interner ViewHolder zum Halten der Item-Views
@@ -33,7 +33,7 @@ class SubcategoryAdapter (
     // Methode zum Binden der Daten an die Views
     override fun onBindViewHolder(holder: SubcategoryViewHolder, position: Int) {
         // Aktuelles Item aus der Unterkategorienliste holen
-        val item = subcategories[position]
+        val item: Subcategory = subcategories.[position]
         // Unterkategorien-Name festlegen
         holder.binding.NameSubcatTV.text = item.name
         // Unterkategorien-Beschreibung festlegen
@@ -43,9 +43,9 @@ class SubcategoryAdapter (
         // Unterkategorien-Bild festlegen
         holder.binding.subcategoryIV.setImageResource(item.image)
         // Klick-Listener für jedes Item definieren
-//        holder.binding.root.setOnClickListener {
+        holder.binding.root.setOnClickListener {
 //            // Aufrufen der onSubcategoryClick-Funktion mit der aktuellen Unterkategorie
-//            onSubcategoryClick(item)
-//        }
+            onSubcategoryClick(item)
+        }
     }
 }

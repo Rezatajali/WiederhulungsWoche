@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/subCategory"
-        android:name="com.example.myappiiii.ui.SubCategory"
+        android:name="com.example.myappiiii.ui.SubCategorys"
         android:label="fragment_sub_category"
         tools:layout="@layout/fragment_sub_category" >
         <action
