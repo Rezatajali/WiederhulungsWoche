@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.myappiiii.Adapters.SubcategoryAdapter
 import com.example.myappiiii.Data.DataSource
@@ -36,30 +37,17 @@ class SubCategorys : Fragment() {
 
 
 
-        val onSubcategoryClick: (Subcategory) -> Unit = {
+        viewModel.currentCategory.observe(viewLifecycleOwner, Observer { category ->
+            category?.let {
+                val onSubcategoryClick: (Subcategory) -> Unit = { subcategory ->
+                    viewModel.setSubCategory(subcategory)
+                    findNavController().navigate(R.id.detail)
+                }
 
-            viewModel.setSubCategory(subcategory = it)
-            findNavController().navigate(R.id.detail)
-        }
-
-
-        viewModel.currentCategory.observe(viewLifecycleOwner) {
-            binding.subRV.adapter = SubcategoryAdapter(subcategories = it)
-        }
-
-        val adapter = SubcategoryAdapter(data, onSubcategoryClick)
-        binding.subRV.adapter = adapter
-
-
-
-
-
-
-
-
-
-
-
+                val adapter = SubcategoryAdapter(it.subcategory, onSubcategoryClick)
+                binding.subRV.adapter = adapter
+            }
+        })
 
 
 
@@ -72,3 +60,4 @@ class SubCategorys : Fragment() {
 
 
 }
+

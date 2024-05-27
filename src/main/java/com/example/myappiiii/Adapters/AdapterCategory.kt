@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myappiiii.Model.Category
+import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.databinding.ListItemCategoryBinding
 
 class AdapterCategory(
@@ -42,10 +43,8 @@ class AdapterCategory(
             holder.binding.categoryIV.setImageResource(item.image)
 
             // Klick-Listener für jedes Item definieren
-            holder.binding.root.setOnClickListener {
-                //Aufrufen der onCategoryClick-Funktion mit der Liste
-                onCategoryClick(item)
-
-            }
+           holder.binding.root.setOnClickListener {
+               onCategoryClick(item)
+           }
         }
 }

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.myappiiii.Adapters.AdapterCategory
 import com.example.myappiiii.Data.DataSource
 import com.example.myappiiii.Model.Category
+import com.example.myappiiii.Model.Subcategory
 import com.example.myappiiii.R
 import com.example.myappiiii.SharedViewModel
 import com.example.myappiiii.databinding.FragmentHomeBinding
@@ -38,15 +39,16 @@ class Home : Fragment() {
 
         val onCategoryCkic: (Category) -> Unit = {
             //UI Event an ViewModel weitergeben
-            viewModel.setCurrentCategory(category = it)
+            viewModel.setCurrentCategory(it)
 
             //navigate to subCategory
             findNavController().navigate(R.id.subCategory)
         }
 
-        //
         val adapter = AdapterCategory(data, onCategoryCkic)
+
         binding.categoryRV.adapter = adapter
+
 
 
     }

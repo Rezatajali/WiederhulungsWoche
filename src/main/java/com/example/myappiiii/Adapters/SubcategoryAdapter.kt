@@ -9,9 +9,9 @@ import com.example.myappiiii.databinding.ListItemSubBinding
 
 class SubcategoryAdapter(
     // Liste der Unterkategorien
-    private var subcategories: List<Category>,
+    private var subcategories: List<Subcategory>,
     // Funktion, die beim Klicken auf eine Unterkategorie aufgerufen wird
-    private val onSubcategoryClick: (Category) -> Unit
+    private val onSubcategoryClick: (Subcategory) -> Unit
 ) : RecyclerView.Adapter<SubcategoryAdapter.SubcategoryViewHolder>() {
 
     // Interner ViewHolder zum Halten der Item-Views
@@ -33,7 +33,7 @@ class SubcategoryAdapter(
     // Methode zum Binden der Daten an die Views
     override fun onBindViewHolder(holder: SubcategoryViewHolder, position: Int) {
         // Aktuelles Item aus der Unterkategorienliste holen
-        val item: Subcategory = subcategories.[position]
+        val item = subcategories[position]
         // Unterkategorien-Name festlegen
         holder.binding.NameSubcatTV.text = item.name
         // Unterkategorien-Beschreibung festlegen

@@ -9,9 +9,9 @@ import javax.sql.DataSource
 
 class SharedViewModel: ViewModel() {
 
-    val _subcategory = MutableLiveData<Subcategory>()
+    val _subCategory = MutableLiveData<Subcategory>()
     val subCategory: LiveData<Subcategory>
-        get() = _subcategory
+        get() = _subCategory
 
     private val _currentCategory = MutableLiveData<Category>()
     val currentCategory: LiveData<Category>
@@ -22,7 +22,7 @@ class SharedViewModel: ViewModel() {
     }
 
     fun setSubCategory(subcategory: Subcategory) {
-        _subcategory.value = subcategory
+        _subCategory.value = subcategory
     }
 
 

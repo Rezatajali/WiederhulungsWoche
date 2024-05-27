@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.myappiiii.SharedViewModel
 import com.example.myappiiii.databinding.FragmentDetailBinding
 
 
 class Detail : Fragment() {
     lateinit var binding: FragmentDetailBinding
-   // private val args: DetailArgs by navArgs()
+
+    // private val args: DetailArgs by navArgs()
     private val viewModel: SharedViewModel by activityViewModels()
 
 
@@ -24,7 +23,7 @@ class Detail : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
+        binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
 
         return binding.root
     }
@@ -32,8 +31,18 @@ class Detail : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.subCategory.observe(viewLifecycleOwner) { subcategory ->
+            subcategory?.let {
+                binding.detailIV.setImageResource(it.image)
+                binding.NameSubcatTV.text = it.name
+                binding.descriptionTV.text = it.description
+                binding.subCategoryPriceTV.text = String.format("%.2f €", it.price)
+            }
+        }
+
+
         //Zurück zu letze layout (Subcategory)
-        binding.backIV.setOnClickListener{
+        binding.backIV.setOnClickListener {
             findNavController().navigateUp()
         }
 
