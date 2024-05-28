@@ -12,7 +12,7 @@ class DataSource {
         return listOf(
 
             Category("Gitarre", R.drawable.gitarr, listOf(
-                Subcategory("Taylor Gitarr", "Taylor 214ce-N Black Dlx Nylon SE", 1130.99, R.drawable.git),
+                Subcategory("Taylor   Gitarr", "Taylor 214ce-N Black Dlx Nylon SE", 1130.99, R.drawable.git),
                 Subcategory("Taylor Gitarr", "Taylor 214ce-N Black Dlx Nylon SE", 100.99, R.drawable.git),
                 Subcategory("Taylor Gitarr", "Taylor 214ce-N Black Dlx Nylon SE", 130.99, R.drawable.git),
                 Subcategory("Taylor Gitarr", "Taylor 214ce-N Black Dlx Nylon SE", 150.99, R.drawable.git),
